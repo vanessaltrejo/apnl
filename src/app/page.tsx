@@ -1,841 +1,210 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { getMockTherapists, specialties, getMockBlogPosts, mockLocations } from "@/lib/mock-data";
+import { ArrowRight, Search, Sparkles, MapPin, Heart, Users, User, Baby, Brain, Scale, Calendar, BookOpen, Video } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
-import ServiceCard from "@/components/ServiceCard";
-import LocationCard from "@/components/LocationCard";
-import TherapyOfferingCard from "@/components/TherapyOfferingCard";
-import HeroSection from "@/components/HeroSection";
 
-const serviceDetailsData = {
-
-  pareja: {
-
-    question: "¿Qué es?",
-
-    answer: "La terapia de pareja es un tratamiento psicológico que ayuda a las parejas a mejorar su relación. También se le conoce como psicoterapia de pareja, consejería matrimonial o consejería de relaciones.",
-
-    sections: [
-
-      {
-
-        heading: "Objetivos",
-
-        points: [
-
-          "Identificar y tratar los conflictos.",
-
-          "Mejorar la comunicación.",
-
-          "Reconocer y respetar las diferencias.",
-
-          "Aprender a interpretar las emociones del otro.",
-
-          "Expresar sentimientos de manera clara.",
-
-          "Modificar actitudes.",
-
-          "Establecer acuerdos para renovar la relación.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Proceso",
-
-        points: [
-
-          "El terapeuta evalúa los aspectos que deterioran la relación.",
-
-          "Adapta el tratamiento y la frecuencia de las sesiones.",
-
-          "Crea un espacio seguro para que las parejas expresen sus sentimientos.",
-
-          "Ayuda a las parejas a desarrollar habilidades de comunicación.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Beneficios",
-
-        points: [
-
-          "Fortalece el vínculo emocional.",
-
-          "Mejora la calidad de la relación.",
-
-          "Ayuda a resolver diferencias de manera constructiva.",
-
-          "Ayuda a terminar la relación de manera tranquila y saludable.",
-
-        ],
-
-      },
-
-    ],
-
-  },
-
-  familiar: {
-
-    question: "¿Qué es?",
-
-    answer: "La terapia familiar es un tipo de psicoterapia que ayuda a las familias a mejorar sus relaciones y dinámicas. Se enfoca en la familia como un sistema en el que todos los miembros se influyen entre sí.",
-
-    sections: [
-
-      {
-
-        heading: "Objetivos",
-
-        points: [
-
-          "Restablecer el equilibrio familiar.",
-
-          "Identificar y modificar patrones de conducta disfuncionales.",
-
-          "Crear patrones de conducta saludables.",
-
-          "Mejorar la comunicación y la participación emocional.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Cuándo es útil?",
-
-        points: [
-
-          "Cuando hay conflictos, tensiones o problemas de comunicación.",
-
-          "Cuando uno de los miembros tiene problemas que afectan a la convivencia.",
-
-          "Cuando las relaciones y las dinámicas del núcleo causan malestar o angustia.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Sesiones",
-
-        points: [
-
-          "La duración de las sesiones puede variar según las necesidades de la familia.",
-
-          "Los intervalos entre sesiones pueden ser de una a varias semanas.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Quién la realiza?",
-
-        points: [
-
-          "Un psicólogo o psiquiatra con formación específica en terapia familiar.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Cómo se trabaja?",
-
-        points: [
-
-          "Se estudian las dinámicas que se producen en la convivencia.",
-
-          "Se escuchan las demandas de todos los miembros de la familia.",
-
-          "Se les enseña a cambiar patrones de comunicación y de conducta disfuncionales.",
-
-        ],
-
-      },
-
-    ],
-
-  },
-
-  individual: {
-
-    question: "¿Qué es?",
-
-    answer: "La terapia individual, también conocida como psicoterapia, es un proceso en el que un psicólogo ayuda a una persona a resolver problemas personales. Es un espacio seguro y confidencial donde se pueden explorar sentimientos, pensamientos y comportamientos.",
-
-    sections: [
-
-      {
-
-        heading: "Objetivo",
-
-        points: [
-
-          "Mejorar la calidad de vida y el bienestar.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Beneficios",
-
-        points: [
-
-          "Aumentar la autoestima.",
-
-          "Mejorar la resolución de conflictos.",
-
-          "Aprender a gestionar las emociones.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Temas tratados",
-
-        points: [
-
-          "Depresión.",
-
-          "Trastornos de la alimentación.",
-
-          "Ansiedad.",
-
-          "Duelo.",
-
-          "Y más.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Cómo funciona?",
-
-        points: [
-
-          "El terapeuta ayuda al paciente a identificar patrones de comportamiento y pensamientos que afectan su bienestar. La terapia individual puede ser una opción para personas que buscan ayuda con problemas que son difíciles de enfrentar solos. La terapia individual puede ayudar a:",
-
-          "Identificar y comprender los problemas que generan malestar.",
-
-          "Mejorar la capacidad para tomar decisiones.",
-
-          "Desarrollar herramientas para enfrentar desafíos.",
-
-          "Mejorar las relaciones personales y familiares.",
-
-          "Aumentar la confianza y el autoconcepto.",
-
-          "Promover el crecimiento personal.",
-
-        ],
-
-      },
-
-    ],
-
-  },
-
-  infantil: {
-
-    question: "¿Qué es?",
-
-    answer: "La terapia infantil es un tratamiento psicológico que ayuda a los niños a mejorar su bienestar emocional y social. Se enfoca en ayudar a los niños a resolver problemas emocionales, conductuales y de relación.",
-
-    sections: [
-
-      {
-
-        heading: "Objetivo",
-
-        points: [
-
-          "Mejorar la autoestima, las habilidades sociales y la comunicación.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Técnicas",
-
-        points: [
-
-          "Juegos.",
-
-          "Actividades.",
-
-          "Técnicas adaptadas a la edad del niño.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Beneficio",
-
-        points: [
-
-          "Ayuda a los niños a manejar sus emociones y a fortalecer su confianza.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Cuándo buscar ayuda?",
-
-        points: [
-
-          "Cuando los niños experimentan dificultades emocionales o psicológicas.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "La terapia infantil puede ayudar con:",
-
-        points: [
-
-          "Problemas de comportamiento.",
-
-          "Ansiedad.",
-
-          "Baja autoestima.",
-
-          "Dificultades escolares.",
-
-          "Conflictos familiares.",
-
-          "Situaciones traumáticas, como divorcios, disputas familiares, acoso escolar o procesos de duelo.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "La terapia infantil puede incluir:",
-
-        points: [
-
-          "Hablar sobre sentimientos y resolver problemas.",
-
-          "Desarrollar habilidades para enfrentar los desafíos de su desarrollo.",
-
-          "Aprender a manejar sus emociones.",
-
-          "Fortalecer su confianza.",
-
-          "Mejorar la manera en que expresa sus emociones.",
-
-        ],
-
-      },
-
-    ],
-
-  },
-
-  neuropsicologica: {
-
-    question: "¿Qué es?",
-
-    answer: "Una evaluación neuropsicológica es un examen que evalúa el funcionamiento del cerebro, el comportamiento y las emociones. Se realiza a través de pruebas y cuestionarios.",
-
-    sections: [
-
-      {
-
-        heading: "Objetivos",
-
-        points: [
-
-          "Identificar alteraciones cognitivas, conductuales y socioemocionales.",
-
-          "Determinar el impacto de lesiones o disfunciones cerebrales en la vida cotidiana.",
-
-          "Establecer un diagnóstico preciso.",
-
-          "Monitorizar la evolución del paciente.",
-
-          "Planificar el tratamiento y la rehabilitación.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Cuándo se realiza?",
-
-        points: [
-
-          "Cuando se sospecha una alteración cognitiva.",
-
-          "Tras una lesión o enfermedad del sistema nervioso central.",
-
-          "Como parte del seguimiento en un proceso de rehabilitación cerebral.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Qué se evalúa?",
-
-        points: [
-
-          "Memoria.",
-
-          "Atención.",
-
-          "Lenguaje.",
-
-          "Funciones espaciales.",
-
-          "Habilidades de pensamiento.",
-
-          "Inteligencia.",
-
-          "Habilidades motoras.",
-
-          "Habilidades socioemocionales.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Quién la realiza?",
-
-        points: [
-
-          "Un neuropsicólogo o un psicólogo clínico especializado en neuropsicología.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Qué incluye?",
-
-        points: [
-
-          "Entrevistas.",
-
-          "Cuestionarios.",
-
-          "Test.",
-
-          "Observación de la conducta.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Resultados",
-
-        points: [
-
-          "Un informe que incluye datos personales, historial clínico, resultados de las pruebas, interpretación de resultados, conclusiones y diagnóstico.",
-
-        ],
-
-      },
-
-    ],
-
-  },
-
-  peritajes: {
-
-    question: "¿Qué es?",
-
-    answer: "Un peritaje psicológico es una evaluación psicológica que se realiza en el contexto de un juicio. El objetivo es aportar pruebas objetivas sobre el estado mental de las personas involucradas en el caso.",
-
-    sections: [
-
-      {
-
-        heading: "¿Quién lo realiza?",
-
-        points: [
-
-          "Un psicólogo especialista en psicología forense.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Quién lo solicita?",
-
-        points: [
-
-          "El juez, los abogados de parte o cualquiera de las partes involucradas en el proceso judicial.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Para qué sirve?",
-
-        points: [
-
-          "Evaluar el estado mental de las personas implicadas en un juicio.",
-
-          "Aportar información técnica y objetiva para tomar decisiones legales.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Qué se evalúa?",
-
-        points: [
-
-          "Salud psicofísica.",
-
-          "Relaciones vinculares.",
-
-          "Capacidades cognitivas y emocionales.",
-
-          "Características de personalidad.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "¿Qué se obtiene?",
-
-        points: [
-
-          "Un informe pericial psicológico que se adjunta al resto de pruebas y testimonios del caso.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Importancia",
-
-        points: [
-
-          "El peritaje psicológico es una herramienta técnica al servicio de la justicia. El informe pericial psicológico tiene validez legal y se utiliza para:",
-
-          "Probar la justificación verídica de un hecho en un proceso judicial.",
-
-          "Considerar la salud mental y el comportamiento de las personas.",
-
-          "Determinar si alguien es responsable penalmente.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Ética profesional",
-
-        points: [
-
-          "El perito psicólogo debe:",
-
-          "Ser imparcial.",
-
-          "Utilizar información contrastada y respaldada científicamente.",
-
-          "No emitir opiniones personales sin base científica.",
-
-        ],
-
-      },
-
-    ],
-
-  },
-
-  default: {
-
-    question: "¿En qué consiste este servicio?",
-
-    answer: "Este servicio está diseñado para ayudarte a abordar desafíos específicos y mejorar tu bienestar emocional. Nuestro equipo de profesionales utiliza enfoques basados en evidencia para apoyarte en tu proceso.",
-
-    sections: [
-
-      {
-
-        heading: "Objetivos Generales",
-
-        points: [
-
-          "Proporcionar un espacio seguro y confidencial.",
-
-          "Desarrollar herramientas para la gestión emocional.",
-
-          "Fomentar el autoconocimiento y crecimiento personal.",
-
-          "Mejorar la calidad de tus relaciones interpersonales.",
-
-        ],
-
-      },
-
-      {
-
-        heading: "Beneficios",
-
-        points: [
-
-          "Mayor claridad mental y emocional.",
-
-          "Reducción de síntomas de estrés, ansiedad o depresión.",
-
-          "Mejora en la comunicación y resolución de conflictos.",
-
-        ],
-
-      },
-
-    ],
-
-  },
-
-};
-
-
-
-
-
-export default function HomePage() {
+import { GuidedMatch } from "@/components/shared/GuidedMatch";
+
+export default function Home() {
+  const recentPosts = getMockBlogPosts();
+
+  const serviceIcons: Record<string, any> = {
+    "individual": User,
+    "pareja": Heart,
+    "familiar": Users,
+    "infantil": Baby,
+    "evaluacion": Brain,
+    "peritaje": Scale,
+  };
 
   return (
+    <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
 
-    <>
-
-      <HeroSection />
-
-
-
-      {/* About Us Section */}
-
-      <section className="w-full py-10 bg-[#d9e3f0] flex items-center justify-center">
-
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-12 px-8 py-6">
-
-          {/* Text Column */}
-
-          <div className="md:w-1/2">
-
-            <h2 className="text-2xl md:text-3xl font-bold text-dark-blue mb-6">¿Quiénes Somos?</h2>
-
-            <p className="text-base text-dark-blue opacity-80 mb-4">
-
-              La Asociación de Psicólogos y Psicólogas de Nuevo León A.C. nace en el 2004, uniendo esfuerzos por la psicología en Nuevo León.
-
-            </p>
-
-            <p className="text-base text-dark-blue opacity-80 mb-4">
-
-              Somos una asociación comprometida con la promoción y el desarrollo profesional de la psicología.
-
-            </p>
-
-            <p className="text-base text-dark-blue opacity-80 mb-4">
-
-              Nuestra misión es crear una cultura de prevención y responsabilidad social en salud mental, fomentando el aprendizaje continuo y la colaboración entre profesionales e instituciones.
-
-            </p>
-
-            <p className="text-base text-dark-blue opacity-80 mb-4">
-
-              Con más de 70 especialistas, brindamos servicios en depresión, ansiedad, violencia y salud mental para niños, adolescentes, adultos y parejas.
-
-            </p>
-
-            <p className="text-base text-dark-blue opacity-80 font-semibold mb-8">
-
-              ¡Únete a nosotros y juntos transformemos la salud mental en México!
-
-            </p>
-
-            <div className="flex justify-center md:justify-start">
-
-              <a
-
-                href="#"
-
-                className="px-8 py-3 bg-dark-blue text-white font-semibold rounded-lg shadow-lg hover:bg-opacity-80 transition-transform transform hover:scale-105 text-base"
-
-              >
-
-                Conoce al equipo
-
-              </a>
-
-            </div>
-
-          </div>
-
-          {/* Image Placeholders Column */}
-
-          <div className="md:w-1/2 flex flex-col gap-8">
-
-            <div className="relative w-full h-56 rounded-lg shadow-md overflow-hidden">
-
-              <Image src="/images/image5.jpg" alt="Imagen 1" layout="fill" objectFit="cover" className="rounded-lg" />
-
-            </div>
-
-            <div className="relative w-full h-56 rounded-lg shadow-md overflow-hidden">
-
-              <Image src="/images/image6.jpg" alt="Imagen 2" layout="fill" objectFit="cover" className="rounded-lg" />
-
-            </div>
-
-          </div>
-
+      {/* Jumbotron Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop"
+            alt="Consultorio Psicológico"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/75 to-transparent z-10" />
         </div>
 
+        <div className="container px-4 md:px-6 relative z-20 py-20">
+          <div className="max-w-3xl space-y-8">
+            <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary animate-in fade-in slide-in-from-left-4 duration-500">
+              <Sparkles className="mr-2 h-4 w-4" />
+              <span>Ética y Compañerismo desde 2004</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-secondary leading-[1] animate-in fade-in slide-in-from-left-6 duration-700">
+              Cuidamos tu mente, <br />
+              <span className="text-primary italic">transformamos tu vida.</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-secondary/70 max-w-[600px] leading-relaxed animate-in fade-in slide-in-from-left-8 duration-900 font-medium">
+              Encuentra el apoyo profesional que necesitas con la Red de Psicólogos más confiable de Nuevo León.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 md:gap-4 text-sm font-bold text-secondary/80 pt-8 animate-in fade-in duration-1000 delay-300">
+              <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-slate-100">
+                <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                <span>Especialistas online y presencial</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-slate-100">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+                <span>2 Sedes en Monterrey</span>
+              </div>
+              <div className="h-6 w-px bg-slate-200 mx-2 hidden sm:block" />
+              <GuidedMatch />
+            </div>
+          </div>
+        </div>
       </section>
-
-
 
       {/* Services Section */}
-
-      <section className="w-full py-12 bg-white">
-
-        <div className="max-w-screen-xl mx-auto px-8">
-
-          <h2 className="text-2xl md:text-3xl font-bold text-dark-blue text-center mb-12">Contamos con:</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <ServiceCard title="Terapia de Pareja" description="Fortalecimiento de la relación." image="/images/terapiapareja.jpg" details={serviceDetailsData.pareja} />
-
-            <ServiceCard title="Terapia Familiar" description="Armonía y comunicación familiar." image="/images/terapiafamiliar.jpg" details={serviceDetailsData.familiar} />
-
-            <ServiceCard title="Terapia Individual" description="Crecimiento personal y bienestar." image="/images/terapiaindividual.jpg" details={serviceDetailsData.individual} />
-
-            <ServiceCard title="Terapia Infantil" description="Apoyo emocional para niños." image="/images/terapiainfantil.png" details={serviceDetailsData.infantil} />
-
-            <ServiceCard title="Evaluación Neuropsicológica" description="Diagnóstico y plan de acción." image="/images/evaluacionneuropsicologica.jpg" details={serviceDetailsData.neuropsicologica} />
-
-            <ServiceCard title="Peritajes Psicológicos" description="Reportes especializados." image="/images/peritajespsicologicos.jpg" details={serviceDetailsData.peritajes} />
-
+      <section className="py-24 bg-white">
+        <div className="container px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-secondary">Nuestros Servicios</h2>
+            <p className="text-lg text-muted-foreground">Especialidades clínicas desarrolladas para tu bienestar integral.</p>
           </div>
 
-        </div>
-
-      </section>
-
-
-
-      {/* Therapy Offerings Section */}
-
-      <section className="w-full py-12 bg-[#d9e3f0]">
-
-        <div className="max-w-screen-xl mx-auto px-8">
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-
-            <TherapyOfferingCard
-
-              title="Terapia psicológica en Nuevo León"
-
-              price="Desde $650 MXN/sesión"
-
-              description="Disponemos de consultorios en diferentes zonas de Monterrey y área metropolitana para poder realizar tu psicoterapia en Nuevo León."
-
-              image="/images/terapiapresencial.jpg"
-
-            />
-
-            <TherapyOfferingCard
-
-              title="Psicólogos Online"
-
-              price="$600 MXN/sesión"
-
-              description="Si estás en otro municipio de Nuevo León o dispones de poco tiempo, puedes hacer terapia online con nuestros especialistas."
-
-              image="/images/terapiaonline.jpg"
-
-            />
-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {specialties.map((service) => {
+              const Icon = serviceIcons[service.slug] || Heart;
+              return (
+                <div key={service.id} className="group p-6 bg-slate-50 rounded-[2.5rem] border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center space-y-4">
+                  <div className="h-16 w-16 rounded-2xl bg-white shadow-md flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110">
+                    <Icon className="h-8 w-8" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-secondary">{service.name}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
+          <div className="flex justify-center">
+            <Button size="lg" className="rounded-2xl bg-secondary hover:bg-secondary/90 text-white font-bold h-16 px-12 text-lg shadow-xl shadow-secondary/10 hover:-translate-y-1 transition-all" asChild>
+              <Link href="/servicios">
+                Ver detalles de servicios
+                <ArrowRight className="ml-3 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
         </div>
-
       </section>
 
-
-
-      {/* Locations Section */}
-
-      <section className="w-full py-16 bg-white">
-
-        <div className="max-w-screen-xl mx-auto px-8">
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-
-            <LocationCard
-
-              title="Sucursal Monterrey"
-
-              mapSrc="https://maps.google.com/maps?q=Ignacio%20Allende%201140%2C%20Centro%2C%2064000%20Monterrey%2C%20N.L.&t=&z=15&ie=UTF8&iwloc=&output=embed"
-
-            />
-
-            <LocationCard
-
-              title="Sucursal Chapultepec"
-
-              mapSrc="https://maps.google.com/maps?q=Asociaci%C3%B3n+de+Psic%C3%B3logos+de+Nuevo+Leon+-+Chapultepec+Priv.+A+2202+El+Realito+64820+Monterrey,+N.L.&t=&z=18&ie=UTF8&iwloc=&output=embed"
-
-            />
-
+      {/* Locations Summary Section */}
+      <section className="py-24 bg-slate-50 border-y border-slate-100 overflow-hidden">
+        <div className="container px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-secondary">Nuestras Sucursales</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Encuéntranos en nuestras dos sedes en Monterrey para tus sesiones presenciales.
+            </p>
           </div>
 
-        </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {mockLocations.map((loc, i) => (
+              <div key={i} className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden flex flex-col">
+                <div className="h-48 bg-slate-200 relative">
+                  <iframe
+                    src={loc.mapUrl}
+                    className="w-full h-full border-0 grayscale opacity-80"
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
+                <div className="p-8 space-y-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-primary">
+                      <MapPin className="h-6 w-6" />
+                      <h3 className="text-2xl font-bold text-secondary">{loc.name}</h3>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed">{loc.address}</p>
+                    <div className="space-y-2 text-sm text-secondary/70">
+                      <p className="flex items-center gap-2 font-medium">
+                        <span className="w-20 font-bold text-secondary">Teléfono:</span> {(loc as any).phone}
+                      </p>
+                      <p className="flex items-start gap-2 font-medium">
+                        <span className="w-20 font-bold text-secondary">Horario:</span> {(loc as any).hours}
+                      </p>
+                    </div>
+                  </div>
+                  <Button size="lg" className="w-full rounded-xl bg-secondary hover:bg-secondary/90 text-white font-bold h-12" asChild>
+                    <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.address)}`} target="_blank" rel="noopener noreferrer">
+                      Ver en Google Maps
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
 
+          {/* Online Callout - Friendly */}
+          <div className="bg-blue-50/50 border border-blue-100 p-8 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="h-16 w-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-primary">
+                <Video className="h-8 w-8" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-xl font-bold text-secondary">¿Buscas una forma más flexible?</h4>
+                <p className="text-muted-foreground">Todos nuestros especialistas también ofrecen sesiones 100% Online.</p>
+              </div>
+            </div>
+            <Button size="lg" className="rounded-xl bg-primary hover:bg-primary/90 text-white font-bold h-12 px-8" asChild>
+              <Link href="/directorio?modality=Online">Explorar Online</Link>
+            </Button>
+          </div>
+        </div>
       </section>
 
-    </>
+      {/* Final Call to Action - Super Friendly */}
+      <section className="py-24 bg-white">
+        <div className="container px-4 md:px-6">
+          <div className="bg-secondary rounded-[3.5rem] p-12 md:p-20 text-white relative overflow-hidden text-center md:text-left">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
 
+            <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
+              <div className="md:w-3/5 space-y-6">
+                <span className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold tracking-widest uppercase">Tu salud mental no puede esperar más.</span>
+                <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">Estamos aquí para escucharte y acompañarte.</h2>
+                <p className="text-lg text-slate-300 max-w-xl leading-relaxed">
+                  Encuentra el psicólogo ideal y agenda tu cita en menos de 2 minutos. Atención personalizada y profesional.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" className="rounded-full px-10 bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5" asChild>
+                    <Link href="/directorio" className="flex items-center gap-2">
+                      Agendar Cita Ahora
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="md:w-2/5 relative hidden md:block">
+                <div className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden border-8 border-white/10 shadow-2xl">
+                  <Image
+                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop"
+                    alt="Apoyo emocional"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
   );
-
 }

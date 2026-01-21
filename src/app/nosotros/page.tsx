@@ -1,66 +1,125 @@
+import { Users, Target, ShieldCheck, Heart, Award, Clock } from "lucide-react";
+import { nosotrosImages } from "@/lib/mock-data";
 import Image from "next/image";
-import TeamSection from "@/components/TeamSection";
 
 export default function NosotrosPage() {
+  const values = [
+    { icon: <Heart className="h-6 w-6" />, title: "Compromiso", desc: "Dedicación total a la salud mental de nuestra comunidad." },
+    { icon: <ShieldCheck className="h-6 w-6" />, title: "Ética", desc: "Practicamos con los más altos estándares de confidencialidad." },
+    { icon: <Target className="h-6 w-6" />, title: "Innovación", desc: "Uso de nuevas plataformas y técnicas terapéuticas." },
+    { icon: <Award className="h-6 w-6" />, title: "Excelencia", desc: "Profesionales certificados y en constante formación." },
+  ];
+
+  const stats = [
+    { label: "Años de Experiencia", value: "20+" },
+    { label: "Terapeutas Afiliados", value: "150+" },
+    { label: "Vidas Impactadas", value: "10k+" },
+    { label: "Centros en NL", value: "2" },
+  ];
+
   return (
-    <>
-      <section className="w-full h-40 relative overflow-hidden">
-        <Image
-          src="/images/image6.jpg"
-          alt="Banner Nosotros"
-          layout="fill"
-          objectFit="cover"
-          quality={85}
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
+    <div className="bg-background">
+      {/* Professional Page Header */}
+      <section className="bg-secondary py-24 text-white">
+        <div className="container px-6">
+          <div className="max-w-3xl space-y-4">
+            <span className="text-primary font-bold uppercase tracking-widest text-sm flex items-center gap-2">
+              <Clock className="h-4 w-4" /> Desde 2004
+            </span>
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">Nuestra Misión y Visión</h1>
+            <p className="text-xl text-slate-300 leading-relaxed">
+              Uniendo esfuerzos para transformar la promoción y práctica de la psicología en Nuevo León.
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* Main Content Section (Image Placeholders + Intro Text & Detailed About Us) */}
-      <section className="w-full py-16 bg-white flex items-center justify-center">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-start gap-12 px-8">
-          {/* Image Placeholders Column (Left) */}
-          <div className="md:w-1/2 flex flex-col gap-8">
-            <div className="relative w-full h-56 rounded-lg shadow-md overflow-hidden">
-              <Image src="/images/image2.jpg" alt="Imagen 2" layout="fill" objectFit="cover" className="rounded-lg" />
+      {/* Stats Bar */}
+      <section className="bg-primary py-12 -mt-10 relative z-20 mx-4 md:mx-auto max-w-5xl rounded-2xl shadow-xl">
+        <div className="container grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, i) => (
+            <div key={i} className="text-center text-white space-y-1">
+              <p className="text-3xl md:text-4xl font-extrabold">{stat.value}</p>
+              <p className="text-xs uppercase tracking-widest opacity-80">{stat.label}</p>
             </div>
-            <div className="relative w-full h-56 rounded-lg shadow-md overflow-hidden">
-              <Image src="/images/image3.jpg" alt="Imagen 3" layout="fill" objectFit="cover" className="rounded-lg" />
-            </div>
-            <div className="relative w-full h-56 rounded-lg shadow-md overflow-hidden">
-              <Image src="/images/image4.jpg" alt="Imagen 4" layout="fill" objectFit="cover" className="rounded-lg" />
+          ))}
+        </div>
+      </section>
+
+      {/* Main Content Section */}
+      <section className="py-24">
+        <div className="container px-6 flex flex-col lg:flex-row items-center gap-16">
+          <div className="lg:w-1/2 relative">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4 pt-12">
+                <div className="relative h-64 rounded-3xl overflow-hidden shadow-lg border-4 border-white">
+                  <Image src={nosotrosImages.sesion} fill className="object-cover" alt="Sesión terapéutica" />
+                </div>
+                <div className="relative h-48 rounded-3xl overflow-hidden shadow-lg border-4 border-white">
+                  <Image src={nosotrosImages.apoyo} fill className="object-cover" alt="Apoyo clínico" />
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="relative h-48 rounded-3xl overflow-hidden shadow-lg border-4 border-white">
+                  <Image src={nosotrosImages.comunidad} fill className="object-cover" alt="Comunidad psicológica" />
+                </div>
+                <div className="relative h-64 rounded-3xl overflow-hidden shadow-lg border-4 border-white">
+                  <Image src={nosotrosImages.reunion} fill className="object-cover" alt="Reunión de especialistas" />
+                </div>
+              </div>
             </div>
           </div>
-          {/* Intro Title, Description and Detailed About Us Text Column (Right) */}
-          <div className="md:w-1/2 text-left">
-            <h1 className="text-3xl md:text-4xl font-bold text-dark-blue text-center md:text-left">Conoce Nuestra Historia</h1>
-            <p className="text-lg mt-2 text-dark-blue opacity-80 text-center md:text-left">Dedicados a la psicología en Nuevo León desde 2004.</p>
-            
-            <div className="text-base text-dark-blue opacity-80 space-y-4 mt-12">
+
+          <div className="lg:w-1/2 space-y-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary">
+              Impulsando la psicología institucional y privada
+            </h2>
+
+            <div className="text-muted-foreground space-y-6 text-lg leading-relaxed">
               <p>
-                La Asociación de Psicólogos y Psicólogas de Nuevo León A.C. nace en el 2004, uniendo esfuerzos por la psicología en Nuevo León.
+                La Asociación de Psicólogos y Psicólogas de Nuevo León A.C. se fundó en el 2004, motivada por un grupo de profesionales apasionados con el objetivo de elevar la práctica psicológica.
               </p>
               <p>
-                Somos una asociación comprometida con la promoción y el desarrollo profesional de la psicología.
+                Nuestra misión está centrada en crear una cultura preventiva y de responsabilidad social en salud mental, apoyándonos en herramientas tecnológicas modernas.
               </p>
-              <p>
-                La Asociación de Psicólogos y Psicólogas de Nuevo León A.C. se fundó en el 2004, motivada por un grupo de psicólogos apasionados con el objetivo de unir esfuerzos para impulsar la promoción y preparación continua de nuestra profesión, tanto en el ámbito institucional como privado, desde lo académico hasta lo profesional.
-              </p>
-              <p>
-                Nuestros objetivos se enfocan en el uso de plataformas de aprendizaje y herramientas de trabajo que apoyen a los psicólogos profesionales en Nuevo León, así como en la creación de una amplia red de contactos entre profesionales de la salud e instituciones que generen nuevas oportunidades de desarrollo.
-              </p>
-              <p>
-                Nuestra misión está centrada en crear una cultura preventiva y de responsabilidad social en salud mental. Nuestra visión es ser una organización reconocida por su contribución y compromiso con el desarrollo de la psicología, siendo punto de encuentro y centro de referencia para compartir conocimientos y enriquecer la práctica profesional de cada psicólogo.
-              </p>
-              <p>
-                Invitamos a todos los interesados a unirse a nuestra asociación para desarrollar nuevos proyectos basados en nuestros valores: compromiso, innovación, confidencialidad, honestidad, ética, perseverancia, solidaridad y responsabilidad.
-              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+              {values.map((v, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-primary shrink-0">
+                    {v.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-secondary">{v.title}</h4>
+                    <p className="text-sm text-muted-foreground">{v.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <TeamSection />
-    </>
+      {/* Mission / Vision CTA */}
+      <section className="py-24 bg-slate-50">
+        <div className="container px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="p-10 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm space-y-4">
+            <Target className="h-12 w-12 text-primary" />
+            <h3 className="text-2xl font-bold text-secondary">Nuestra Misión</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Crear una cultura preventiva y de responsabilidad social en salud mental a través del fortalecimiento de la red de profesionales y el acceso simplificado para la sociedad.
+            </p>
+          </div>
+          <div className="p-10 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm space-y-4">
+            <Users className="h-12 w-12 text-secondary" />
+            <h3 className="text-2xl font-bold text-secondary">Nuestra Visión</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Ser la organización líder y referente en Nuevo León por nuestro compromiso con el desarrollo científico y ético de la psicología moderna.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
