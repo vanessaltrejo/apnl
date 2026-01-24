@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import { Navbar } from "@/components/shared/Navbar";
 
 const poppins = Poppins({
   variable: "--font-sans", // Use variable for Tailwind integration
@@ -26,11 +24,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${poppins.variable} font-sans bg-background text-foreground antialiased`}>
-        <Navbar />
-        <main className="min-h-screen flex flex-col">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
