@@ -1,0 +1,20 @@
+# Firebase App Hosting configuration file.
+# Learn more: https://firebase.google.com/docs/app-hosting/configure-runtime
+
+kind: "AppStack"
+apiVersion: "v1"
+
+# The environment variables that will be available to your application at runtime.
+# env:
+#   - name: NEXT_PUBLIC_API_URL
+#     value: "https://api.example.com"
+
+# Compute settings for the application.
+compute:
+  # The region where the application will be deployed.
+  region: "us-central1"
+  # CPU and Memory settings (defaults are usually fine for small apps).
+  # minInstances: 0
+  # maxInstances: 10
+  # memory: "512MiB"
+  # cpu: 1

@@ -15,7 +15,9 @@ import { useSearchParams } from "next/navigation";
 import { GuidedMatch } from "@/components/shared/GuidedMatch";
 import { useEffect } from "react";
 
-export default function DirectoryPage() {
+import { Suspense } from "react";
+
+function DirectoryContent() {
     const allTherapists = getMockTherapists();
     const searchParams = useSearchParams();
     const initialSpecialty = searchParams.get("specialty") || "all";
@@ -214,3 +216,12 @@ export default function DirectoryPage() {
         </div>
     );
 }
+
+export default function DirectoryPage() {
+    return (
+        <Suspense fallback={<div>Cargando directorio...</div>}>
+            <DirectoryContent />
+        </Suspense>
+    );
+}
+
