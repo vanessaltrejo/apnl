@@ -59,7 +59,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-slate-100">
                 <div className="h-2 w-2 rounded-full bg-primary" />
-                <span>2 Sedes en Monterrey</span>
+                <span>2 Sedes en Nuevo León</span>
               </div>
               <div className="h-6 w-px bg-slate-200 mx-2 hidden sm:block" />
               <GuidedMatch />
@@ -110,7 +110,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <h2 className="text-3xl md:text-5xl font-bold text-secondary">Nuestras Sucursales</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Encuéntranos en nuestras dos sedes en Monterrey para tus sesiones presenciales.
+              Encuéntranos en nuestras dos sedes en Nuevo León para tus sesiones presenciales.
             </p>
           </div>
 

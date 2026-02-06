@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
     LayoutDashboard,
     Users,
     UserPlus,
     Calendar,
+    CalendarDays,
     Heart,
     CreditCard,
     GraduationCap,
@@ -14,27 +15,29 @@ import {
     Settings,
     LogOut,
     ChevronRight,
+    Stethoscope,
     ShieldCheck
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function AdminSidebar() {
     const pathname = usePathname();
+    const router = useRouter();
 
     const menuItems = [
         { title: "Dashboard", href: "/admin", icon: LayoutDashboard },
-        { title: "Directorio de Miembros", href: "/admin/miembros", icon: Users },
-        { title: "Solicitudes de Ingreso", href: "/admin/solicitudes", icon: UserPlus, badge: 14 },
-        { title: "Gestión de Citas", href: "/admin/citas", icon: Calendar },
+        { title: "Gestión de Citas", href: "/admin/citas", icon: Calendar, badge: 3 },
+        { title: "Calendario", href: "/admin/calendario", icon: CalendarDays },
+        { title: "Terapeutas", href: "/admin/terapeutas", icon: Stethoscope },
+        { title: "Miembros", href: "/admin/miembros", icon: Users },
         { title: "Pacientes", href: "/admin/pacientes", icon: Heart },
         { title: "Pagos y Finanzas", href: "/admin/finanzas", icon: CreditCard },
         { title: "Formación", href: "/admin/formacion", icon: GraduationCap },
         { title: "Contenido", href: "/admin/contenido", icon: PenTool },
-        { title: "Configuración", href: "/admin/configuracion", icon: Settings },
     ];
 
     return (
-        <aside className="fixed left-0 top-0 z-40 h-screen w-72 bg-slate-50 border-r border-slate-200 flex flex-col">
+        <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-slate-50 border-r border-slate-200 flex flex-col">
             {/* Header */}
             <div className="h-16 flex items-center px-6 border-b border-slate-200/60 bg-white/50 backdrop-blur-sm">
                 <Link href="/admin" className="flex items-center gap-3">
@@ -81,20 +84,39 @@ export function AdminSidebar() {
                 })}
             </nav>
 
-            {/* User Profile / Footer */}
-            <div className="p-4 border-t border-slate-200 bg-white/50">
-                <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors cursor-pointer border border-transparent hover:border-slate-100 shadow-none hover:shadow-sm group">
-                    <div className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-white font-bold text-sm">
+            {/* Role Switcher & User Profile */}
+            <div className="p-4 border-t border-slate-200 bg-white/50 space-y-4">
+                {/* Role Switcher - Interactive Look */}
+                <div className="flex bg-slate-100 p-1 rounded-xl cursor-not-allowed opacity-80 group">
+                    <button className="flex-1 px-2 py-1.5 text-[10px] font-black uppercase tracking-tighter rounded-lg bg-white text-primary shadow-sm transition-all">
+                        Admin
+                    </button>
+                    <button className="flex-1 px-2 py-1.5 text-[10px] font-bold uppercase tracking-tighter text-slate-500 hover:text-secondary transition-all">
+                        Terapeuta
+                    </button>
+                </div>
+
+                <div
+                    onClick={() => router.push("/admin/configuracion")}
+                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-all cursor-pointer border border-transparent hover:border-slate-100 shadow-none hover:shadow-sm group"
+                >
+                    <div className="h-9 w-9 rounded-full bg-secondary flex items-center justify-center text-white font-bold text-xs">
                         AD
                     </div>
                     <div className="flex-1 min-w-0">
                         <p className="text-sm font-bold text-secondary truncate">Administrador</p>
-                        <p className="text-xs text-slate-500 truncate">admin@apnl.com</p>
+                        <p className="text-[10px] text-slate-500 truncate">Editar mi perfil</p>
                     </div>
-                    <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-red-500" asChild>
-                        <Link href="/iniciar-sesion">
-                            <LogOut className="h-4 w-4" />
-                        </Link>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-7 w-7 text-slate-400 hover:text-red-500"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            router.push("/iniciar-sesion");
+                        }}
+                    >
+                        <LogOut className="h-3.5 w-3.5" />
                     </Button>
                 </div>
             </div>

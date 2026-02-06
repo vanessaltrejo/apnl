@@ -25,6 +25,8 @@ export function AppointmentScheduler({ therapist }: AppointmentSchedulerProps) {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
+        age: "",
+        modality: "",
         reason: ""
     });
 
@@ -41,7 +43,7 @@ export function AppointmentScheduler({ therapist }: AppointmentSchedulerProps) {
         setIsSuccess(true);
     };
 
-    const isFormValid = formData.name && formData.phone && formData.reason && date && selectedTime;
+    const isFormValid = formData.name && formData.phone && formData.age && formData.modality && formData.reason && date && selectedTime;
 
     if (isSuccess) {
         return (
@@ -62,7 +64,7 @@ export function AppointmentScheduler({ therapist }: AppointmentSchedulerProps) {
                 <Button variant="ghost" className="text-primary font-bold hover:bg-primary/5" onClick={() => {
                     setIsSuccess(false);
                     setSelectedTime(null);
-                    setFormData({ name: "", phone: "", reason: "" });
+                    setFormData({ name: "", phone: "", age: "", modality: "", reason: "" });
                 }}>
                     Agendar otra cita
                 </Button>
@@ -149,33 +151,62 @@ export function AppointmentScheduler({ therapist }: AppointmentSchedulerProps) {
                         Tus Datos
                     </div>
 
-                    <div className="space-y-4 bg-slate-50/50 p-6 rounded-[2rem] border border-slate-100">
+                    <div className="space-y-4 bg-slate-50/50 p-6 rounded-[2rem] border border-slate-100 shadow-sm">
                         <div className="space-y-2">
-                            <Label htmlFor="name" className="text-secondary font-bold ml-1">Nombre Completo</Label>
+                            <Label htmlFor="name" className="text-secondary font-bold ml-1 text-sm">Nombre Completo</Label>
                             <Input
                                 id="name"
                                 placeholder="Ej. Juan Pérez"
-                                className="rounded-2xl border-slate-200 h-12 bg-white px-4 focus-visible:ring-primary shadow-sm"
+                                className="rounded-2xl border-slate-200 h-11 bg-white px-4 focus-visible:ring-primary shadow-sm transition-all text-sm"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             />
                         </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="phone" className="text-secondary font-bold ml-1">WhatsApp / Teléfono</Label>
-                            <Input
-                                id="phone"
-                                placeholder="Ej. 81 1234 5678"
-                                className="rounded-2xl border-slate-200 h-12 bg-white px-4 focus-visible:ring-primary shadow-sm"
-                                value={formData.phone}
-                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            />
+
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="phone" className="text-secondary font-bold ml-1 text-sm">WhatsApp</Label>
+                                <Input
+                                    id="phone"
+                                    placeholder="81 1234 5678"
+                                    className="rounded-2xl border-slate-200 h-11 bg-white px-4 focus-visible:ring-primary shadow-sm transition-all text-sm"
+                                    value={formData.phone}
+                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="age" className="text-secondary font-bold ml-1 text-sm">Edad</Label>
+                                <Input
+                                    id="age"
+                                    type="number"
+                                    placeholder="Ej. 25"
+                                    className="rounded-2xl border-slate-200 h-11 bg-white px-4 focus-visible:ring-primary shadow-sm transition-all text-sm"
+                                    value={formData.age}
+                                    onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+                                />
+                            </div>
                         </div>
+
                         <div className="space-y-2">
-                            <Label htmlFor="reason" className="text-secondary font-bold ml-1">Motivo de consulta</Label>
+                            <Label htmlFor="modality" className="text-secondary font-bold ml-1 text-sm">Modalidad de sesión</Label>
+                            <select
+                                id="modality"
+                                className="flex w-full rounded-2xl border border-slate-200 h-11 bg-white px-4 text-sm shadow-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 appearance-none transition-all cursor-pointer font-medium text-slate-700"
+                                value={formData.modality}
+                                onChange={(e) => setFormData({ ...formData, modality: e.target.value })}
+                            >
+                                <option value="" disabled className="text-muted-foreground italic">Selecciona modalidad...</option>
+                                <option value="online">Sesión Online (Video llamada)</option>
+                                <option value="presencial">Sesión Presencial (En consultorio)</option>
+                            </select>
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label htmlFor="reason" className="text-secondary font-bold ml-1 text-sm">¿Qué te trae a consulta?</Label>
                             <Textarea
                                 id="reason"
-                                placeholder="¿En qué podemos apoyarte hoy?"
-                                className="rounded-2xl border-slate-200 min-h-[100px] bg-white p-4 focus-visible:ring-primary shadow-sm"
+                                placeholder="Platícanos brevemente el motivo..."
+                                className="rounded-2xl border-slate-200 min-h-[80px] bg-white p-4 focus-visible:ring-primary shadow-sm transition-all text-sm resize-none"
                                 value={formData.reason}
                                 onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
                             />

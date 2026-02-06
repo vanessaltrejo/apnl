@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DollarSign, Users, UserPlus, Calendar, ArrowRight, TrendingUp } from "lucide-react";
+import { DollarSign, Users, UserPlus, Calendar, ArrowRight, TrendingUp, Video, MapPin, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function AdminDashboardPage() {
     return (
@@ -12,38 +13,36 @@ export default function AdminDashboardPage() {
                     <p className="text-muted-foreground mt-1">Bienvenido de nuevo, aquí está el resumen de hoy.</p>
                 </div>
                 <div className="flex gap-3">
-                    <Button variant="outline" className="rounded-xl border-slate-200">
-                        Exportar Reporte
-                    </Button>
                     <Button className="rounded-xl bg-primary hover:bg-primary/90 text-white font-bold shadow-md shadow-primary/20">
-                        <UserPlus className="mr-2 h-4 w-4" /> Registrar Miembro
+                        <FileText className="mr-2 h-4 w-4" /> Reporte Semanal
                     </Button>
                 </div>
             </div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                    { title: "Ingresos Totales", value: "$45,231.89", sub: "+20.1% vs mes anterior", icon: DollarSign, color: "text-emerald-600", bg: "bg-emerald-50" },
-                    { title: "Miembros Activos", value: "2,350", sub: "+180 nuevos este mes", icon: Users, color: "text-primary", bg: "bg-blue-50" },
-                    { title: "Solicitudes", value: "14", sub: "Requieren validación", icon: UserPlus, color: "text-orange-600", bg: "bg-orange-50" },
-                    { title: "Citas Agendadas", value: "573", sub: "+201 desde la semana pasada", icon: Calendar, color: "text-purple-600", bg: "bg-purple-50" },
+                    { title: "Ingresos Totales", value: "$45,231", sub: "+20% vs mes anterior", icon: DollarSign, color: "text-emerald-600", bg: "bg-emerald-50" },
+                    { title: "Citas este Mes", value: "192", sub: "+12% vs mes pasado", icon: TrendingUp, color: "text-purple-600", bg: "bg-purple-50" },
+                    { title: "Terapeutas", value: "14", sub: "Especialistas activos", icon: Users, color: "text-blue-600", bg: "bg-blue-50" },
+                    { title: "Nuevos Miembros", value: "32", sub: "Afiliados este mes", icon: UserPlus, color: "text-orange-600", bg: "bg-orange-50" },
+                    { title: "Citas Chapultepec", value: "24", sub: "Semana actual", icon: MapPin, color: "text-slate-600", bg: "bg-slate-50" },
+                    { title: "Barrio Antiguo", value: "18", sub: "Semana actual", icon: MapPin, color: "text-slate-600", bg: "bg-slate-50" },
+                    { title: "Solicitudes", value: "7", sub: "Pendientes revisión", icon: UserPlus, color: "text-blue-600", bg: "bg-blue-50" },
+                    { title: "Sesiones Online", value: "65%", sub: "Preferencia", icon: Video, color: "text-cyan-600", bg: "bg-cyan-50" },
                 ].map((stat, i) => (
-                    <Card key={i} className="rounded-2xl border-slate-100 shadow-sm hover:shadow-md transition-all">
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-bold text-muted-foreground uppercase tracking-wider">
-                                {stat.title}
-                            </CardTitle>
-                            <div className={`h-8 w-8 rounded-lg ${stat.bg} ${stat.color} flex items-center justify-center`}>
-                                <stat.icon className="h-4 w-4" />
+                    <Card key={i} className="rounded-2xl border-none bg-white shadow-sm hover:shadow-md transition-all">
+                        <CardContent className="p-5 flex items-center justify-between">
+                            <div className="space-y-0.5">
+                                <p className="text-sm font-medium text-muted-foreground">{stat.title}</p>
+                                <div className="text-2xl font-black text-secondary leading-tight">{stat.value}</div>
+                                <p className="text-[10px] text-muted-foreground font-medium">
+                                    {stat.sub}
+                                </p>
                             </div>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-black text-secondary">{stat.value}</div>
-                            <p className="text-xs text-muted-foreground mt-1 font-medium flex items-center gap-1">
-                                {stat.sub.includes("+") && <TrendingUp className="h-3 w-3 text-emerald-500" />}
-                                {stat.sub}
-                            </p>
+                            <div className={`h-10 w-10 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
+                                <stat.icon className="h-5 w-5" />
+                            </div>
                         </CardContent>
                     </Card>
                 ))}
@@ -51,11 +50,14 @@ export default function AdminDashboardPage() {
 
             {/* Recent Activity Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <Card className="rounded-3xl border-slate-100 shadow-sm">
-                    <CardHeader>
-                        <CardTitle className="text-xl font-bold text-secondary">Solicitudes Recientes</CardTitle>
+                <Card className="rounded-[2.5rem] border-slate-100 shadow-sm bg-white overflow-hidden">
+                    <CardHeader className="bg-slate-50/50 border-b border-slate-100 px-8 py-6">
+                        <div className="flex items-center justify-between">
+                            <CardTitle className="text-xl font-bold text-secondary">Solicitudes Recientes</CardTitle>
+                            <Badge variant="outline" className="bg-white font-bold">14 Pendientes</Badge>
+                        </div>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="px-8 py-6">
                         <div className="space-y-6">
                             {[
                                 { name: "Dr. Roberto Casas", email: "roberto@gmail.com", status: "Pendiente", time: "Hace 2 hrs" },
@@ -73,7 +75,7 @@ export default function AdminDashboardPage() {
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-yellow-100 text-yellow-700 hover:bg-yellow-200">
+                                        <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-yellow-100 text-yellow-700">
                                             {item.status}
                                         </span>
                                         <p className="text-[10px] text-muted-foreground mt-1">{item.time}</p>
@@ -81,39 +83,49 @@ export default function AdminDashboardPage() {
                                 </div>
                             ))}
                         </div>
-                        <div className="mt-6 pt-4 border-t border-slate-100">
-                            <Button variant="ghost" className="w-full text-primary font-bold hover:bg-primary/5" size="sm">
+                        <div className="mt-8 pt-4 border-t border-slate-100">
+                            <Button variant="ghost" className="w-full text-primary font-bold hover:bg-primary/5 rounded-xl" size="sm">
                                 Ver todas las solicitudes <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </div>
                     </CardContent>
                 </Card>
 
-                <Card className="rounded-3xl border-slate-100 shadow-sm bg-gradient-to-br from-primary/5 to-transparent border-primary/10">
-                    <CardHeader>
-                        <CardTitle className="text-xl font-bold text-secondary">Estado del Sistema</CardTitle>
+                <Card className="rounded-[3.5rem] border-slate-100 shadow-sm bg-white overflow-hidden">
+                    <CardHeader className="bg-slate-50/50 border-b border-slate-100 px-8 py-6">
+                        <div className="flex items-center justify-between">
+                            <CardTitle className="text-xl font-bold text-secondary">Próximas Citas</CardTitle>
+                            <Calendar className="h-5 w-5 text-slate-400" />
+                        </div>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                        <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
-                            <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                            <div>
-                                <p className="font-bold text-sm text-secondary">Base de Datos Operativa</p>
-                                <p className="text-xs text-muted-foreground">Última copia de seguridad: 3:00 AM</p>
-                            </div>
+                    <CardContent className="px-8 py-6">
+                        <div className="space-y-6">
+                            {[
+                                { patient: "Ana María Lopez", time: "4:00 PM", therapist: "Lic. Roberto Casas", type: "Online" },
+                                { patient: "Carlos Mendez", time: "5:30 PM", therapist: "Mtra. Sofia Q.", type: "Presencial" },
+                                { patient: "Lucia Garza", time: "6:00 PM", therapist: "Dr. Alejandro M.", type: "Online" },
+                            ].map((appt, i) => (
+                                <div key={i} className="flex items-center justify-between group">
+                                    <div className="flex items-center gap-4">
+                                        <div className={`h-10 w-10 rounded-xl flex items-center justify-center font-bold ${appt.type === 'Online' ? 'bg-purple-50 text-purple-600' : 'bg-blue-50 text-blue-600'}`}>
+                                            {appt.type === 'Online' ? <Video className="h-5 w-5" /> : <MapPin className="h-5 w-5" />}
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-bold text-secondary">{appt.patient}</p>
+                                            <p className="text-[11px] text-muted-foreground">con {appt.therapist}</p>
+                                        </div>
+                                    </div>
+                                    <div className="text-right">
+                                        <p className="text-sm font-black text-primary">{appt.time}</p>
+                                        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tighter">Hoy</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                        <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center gap-4">
-                            <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                            <div>
-                                <p className="font-bold text-sm text-secondary">Servidor de Correos</p>
-                                <p className="text-xs text-muted-foreground">Enviando notificaciones correctamente</p>
-                            </div>
-                        </div>
-
-                        <div className="p-4 rounded-xl bg-blue-50 border border-blue-100">
-                            <p className="text-sm font-bold text-blue-900 mb-1">Nota del Desarrollador</p>
-                            <p className="text-xs text-blue-700 leading-relaxed">
-                                Se ha programado un mantenimiento preventivo para el próximo domingo a las 2:00 AM. No afectará el servicio público.
-                            </p>
+                        <div className="mt-8 pt-4 border-t border-slate-100">
+                            <Button variant="ghost" className="w-full text-primary font-bold hover:bg-primary/5 rounded-xl" size="sm">
+                                Ver calendario completo <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
                         </div>
                     </CardContent>
                 </Card>

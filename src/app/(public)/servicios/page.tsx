@@ -56,7 +56,7 @@ export default function ServicesPage() {
 
                                     <div className="p-6 bg-slate-50 rounded-[2rem] border border-slate-100 space-y-4 shadow-sm">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Inversión</span>
+                                            <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Inversión Inicial</span>
                                             <span className="text-2xl font-black text-primary">$350 MXN</span>
                                         </div>
                                         <div className="h-px bg-slate-200" />
@@ -173,7 +173,7 @@ export default function ServicesPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="text-left space-y-6">
                                 <h3 className="text-2xl font-bold">Citas en línea y presenciales</h3>
-                                <p className="text-slate-300 leading-relaxed font-medium">Contamos con instalaciones de primer nivel en <strong>Monterrey</strong> y atención <strong>100% online</strong> para mayor flexibilidad.</p>
+                                <p className="text-slate-300 leading-relaxed font-medium">Contamos con instalaciones de primer nivel en <strong>Nuevo León</strong> y atención <strong>100% online</strong> para mayor flexibilidad.</p>
                                 <div className="flex flex-wrap gap-4">
                                     <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl text-xs font-bold border border-white/10">
                                         <div className="h-2 w-2 rounded-full bg-primary" />
