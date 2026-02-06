@@ -10,7 +10,7 @@ import { GuidedMatch } from "@/components/shared/GuidedMatch";
 export default function Home() {
   const recentPosts = getMockBlogPosts();
 
-  const serviceIcons: Record<string, any> = {
+  const serviceIcons: Record<string, React.ElementType> = {
     "individual": User,
     "pareja": Heart,
     "familiar": Users,
@@ -134,10 +134,10 @@ export default function Home() {
                     <p className="text-muted-foreground leading-relaxed">{loc.address}</p>
                     <div className="space-y-2 text-sm text-secondary/70">
                       <p className="flex items-center gap-2 font-medium">
-                        <span className="w-20 font-bold text-secondary">Teléfono:</span> {(loc as any).phone}
+                        <span className="w-20 font-bold text-secondary">Teléfono:</span> {loc.phone}
                       </p>
                       <p className="flex items-start gap-2 font-medium">
-                        <span className="w-20 font-bold text-secondary">Horario:</span> {(loc as any).hours}
+                        <span className="w-20 font-bold text-secondary">Horario:</span> {loc.hours}
                       </p>
                     </div>
                   </div>
