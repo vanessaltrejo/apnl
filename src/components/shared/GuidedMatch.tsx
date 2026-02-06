@@ -156,7 +156,7 @@ export function GuidedMatch({
                                 {(selections.whom === "pareja" || selections.whom === "familia") && (
                                     <div className="space-y-4">
                                         <p className="text-sm text-muted-foreground italic bg-slate-50 p-4 rounded-xl border border-slate-100">
-                                            "Entendemos que las dinámicas de relación son complejas. Lo más importante es dar el primer paso juntos."
+                                            &quot;Entendemos que las dinámicas de relación son complejas. Lo más importante es dar el primer paso juntos.&quot;
                                         </p>
                                         <Button className="w-full h-14 rounded-2xl font-bold text-lg" onClick={() => handleConcern("general")}>
                                             Siguiente <ArrowRight className="ml-2 h-5 w-5" />

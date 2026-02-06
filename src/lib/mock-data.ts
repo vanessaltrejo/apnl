@@ -1,5 +1,14 @@
 import { addDays, format, startOfToday } from "date-fns";
 
+export interface Location {
+    id: string;
+    name: string;
+    address: string;
+    phone: string;
+    hours: string;
+    mapUrl: string;
+}
+
 export interface Specialty {
     id: string;
     name: string;
@@ -277,7 +286,7 @@ export const nosotrosImages = {
     reunion: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop",
 };
 
-export const mockLocations = [
+export const mockLocations: Location[] = [
     {
         id: "loc1",
         name: "Sucursal Barrio Antiguo",

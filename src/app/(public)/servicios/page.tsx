@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { GuidedMatch } from "@/components/shared/GuidedMatch";
 
 export default function ServicesPage() {
-    const serviceIcons: Record<string, any> = {
+    const serviceIcons: Record<string, React.ElementType> = {
         "individual": User,
         "pareja": Heart,
         "familiar": Users,
