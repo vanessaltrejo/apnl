@@ -186,13 +186,13 @@ export default function ServicesPage() {
                                 </div>
                             </div>
                             <div className="flex flex-col gap-4">
-                                <Button size="lg" className="rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg" asChild>
-                                    <Link href="/directorio">Agendar mi Cita</Link>
-                                </Button>
                                 <GuidedMatch
                                     customTriggerLabel="Asistencia en 3 clics"
-                                    customTriggerClassName="rounded-2xl border-white/30 text-white hover:bg-white/10 font-bold h-14 bg-transparent border shadow-none"
+                                    customTriggerClassName="rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg w-full"
                                 />
+                                <p className="text-xs text-slate-400 font-medium">
+                                    Te ayudamos a elegir el servicio ideal para tus necesidades.
+                                </p>
                             </div>
                         </div>
                     </div>

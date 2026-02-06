@@ -38,7 +38,7 @@ export function Navbar() {
                 </div>
 
                 <div className="hidden md:flex gap-4 items-center">
-                    <Button variant="ghost" className="text-secondary hover:text-primary font-bold" asChild>
+                    <Button variant="ghost" className="text-secondary hover:bg-slate-100 hover:text-secondary font-bold transition-all" asChild>
                         <Link href="/iniciar-sesion">Iniciar Sesión</Link>
                     </Button>
 

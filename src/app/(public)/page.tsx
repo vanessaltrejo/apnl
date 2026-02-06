@@ -33,7 +33,7 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/75 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/68 to-transparent z-10 w-[110%]" />
         </div>
 
         <div className="container px-4 md:px-6 relative z-20 py-20">

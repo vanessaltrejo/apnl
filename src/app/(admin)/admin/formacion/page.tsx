@@ -36,7 +36,7 @@ export default function FormacionPage() {
         {
             id: 1,
             title: "Diplomado en Terapia de Pareja",
-            instructor: "Dra. Elena Casas",
+            instructor: "Anibal Alejandro Cerda Garcia",
             date: "15 Feb 2026",
             type: "Diplomado",
             status: "Inscripciones Abiertas",
@@ -47,7 +47,7 @@ export default function FormacionPage() {
         {
             id: 2,
             title: "Taller: Primeros Auxilios Psicológicos",
-            instructor: "Mtro. Carlos Ruiz",
+            instructor: "Mario Alejandro Carvajal Rivera",
             date: "02 Mar 2026",
             type: "Taller",
             status: "Cupo Lleno",
@@ -56,20 +56,9 @@ export default function FormacionPage() {
             price: "$850"
         },
         {
-            id: 3,
-            title: "Congreso Anual de Psicología Clínica",
-            instructor: "Varios Ponentes",
-            date: "10-12 Abr 2026",
-            type: "Congreso",
-            status: "Próximamente",
-            attendees: 120,
-            capacity: 250,
-            price: "$1,200"
-        },
-        {
             id: 4,
             title: "Actualización en DSM-V-TR",
-            instructor: "Dr. Roberto Casas",
+            instructor: "Pedro Cantu Ramirez",
             date: "20 May 2026",
             type: "Curso Corto",
             status: "Inscripciones Abiertas",

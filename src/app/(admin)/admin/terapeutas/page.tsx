@@ -22,20 +22,15 @@ import {
 
 export default function MiembrosPage() {
     const members = [
-        { id: 1, name: "Lic. Clara Mendez", email: "clara.m@consulta.com", phone: "81 8345 5334", status: "Activo", type: "Terapeuta", specialties: ["Individual", "Pareja"], location: "Chapultepec" },
-        { id: 2, name: "Dr. Roberto Casas", email: "roberto@gmail.com", phone: "81 1234 5678", status: "Activo", type: "Terapeuta", specialties: ["Clínica"], location: "Online" },
-        { id: 3, name: "Mtra. Ana Torres", email: "ana.t@hotmail.com", phone: "81 8765 4321", status: "Activo", type: "Terapeuta", specialties: ["Infantil", "Aprendizaje"], location: "Barrio Antiguo" },
-        { id: 4, name: "Lic. Sofia Garza", email: "sofia.g@yahoo.com", phone: "81 2345 6789", status: "Activo", type: "Terapeuta", specialties: ["Individual"], location: "Chapultepec" },
-        { id: 5, name: "Dr. Alejandro Ruiz", email: "alex.r@outlook.com", phone: "81 9876 5432", status: "Activo", type: "Terapeuta", specialties: ["Forense"], location: "Online" },
-        { id: 6, name: "Lic. Elena Garza", email: "elena.g@apnl.com", phone: "81 2233 4455", status: "Activo", type: "Terapeuta", specialties: ["Ansiedad", "Depresión"], location: "Barrio Antiguo" },
-        { id: 7, name: "Mtra. Laura Quiroga", email: "laura.q@apnl.com", phone: "81 3344 5566", status: "Activo", type: "Terapeuta", specialties: ["Adolescentes"], location: "Chapultepec" },
-        { id: 8, name: "Dr. Miguel Angel", email: "miguel.a@apnl.com", phone: "81 4455 6677", status: "Activo", type: "Terapeuta", specialties: ["Neuropsicología"], location: "Barrio Antiguo" },
-        { id: 9, name: "Lic. Ricardo Slim", email: "ricardo.s@apnl.com", phone: "81 5566 7788", status: "Activo", type: "Terapeuta", specialties: ["Pareja"], location: "Online" },
-        { id: 10, name: "Mtra. Monica Diaz", email: "monica.d@apnl.com", phone: "81 6677 8899", status: "Activo", type: "Terapeuta", specialties: ["Tanatología"], location: "Chapultepec" },
-        { id: 11, name: "Dr. Carlos Sanmiguel", email: "carlos.s@apnl.com", phone: "81 7788 9900", status: "Activo", type: "Terapeuta", specialties: ["Adicciones"], location: "Online" },
-        { id: 12, name: "Lic. Beatriz Jasso", email: "beatriz.j@apnl.com", phone: "81 8899 0011", status: "Activo", type: "Terapeuta", specialties: ["Terapia Familiar"], location: "Barrio Antiguo" },
-        { id: 13, name: "Mtra. Sandra Luna", email: "sandra.l@apnl.com", phone: "81 9900 1122", status: "Activo", type: "Terapeuta", specialties: ["Psicopedagogía"], location: "Chapultepec" },
-        { id: 14, name: "Dr. Fernando Ortiz", email: "fernando.o@apnl.com", phone: "81 0011 2233", status: "Activo", type: "Terapeuta", specialties: ["EMDR"], location: "Online" },
+        { id: 1, name: "Abigail Guadalupe Rodriguez de Leon", email: "abigail@apnl.org", phone: "81 8345 5334", status: "Activo", type: "Terapeuta", specialties: ["Individual"], location: "Barrio Antiguo" },
+        { id: 2, name: "Lilia Sarahi Olivo Gamboa", email: "lilia.olivo@apnl.org", phone: "81 1234 5678", status: "Activo", type: "Terapeuta", specialties: ["Neuropsicología", "Individual"], location: "Barrio Antiguo" },
+        { id: 3, name: "Fernanda Miroslava Muñoz Cordero", email: "fernanda.munoz@apnl.org", phone: "81 8765 4321", status: "Activo", type: "Terapeuta", specialties: ["Individual", "Pareja"], location: "Barrio Antiguo" },
+        { id: 4, name: "Violeta Elizabeth Reyna Salas", email: "violeta.reyna@apnl.org", phone: "81 2345 6789", status: "Activo", type: "Terapeuta", specialties: ["Individual"], location: "Chapultepec" },
+        { id: 5, name: "Pedro Cantu Ramirez", email: "pedro.cantu@apnl.org", phone: "81 9876 5432", status: "Activo", type: "Terapeuta", specialties: ["Especialista"], location: "Barrio Antiguo" },
+        { id: 6, name: "Rocio Elizabeth Contreras Sanchez", email: "rocio.contreras@apnl.org", phone: "81 2233 4455", status: "Activo", type: "Terapeuta", specialties: ["Individual", "Infantil"], location: "Barrio Antiguo" },
+        { id: 7, name: "Anibal Alejandro Cerda Garcia", email: "anibal.cerda@apnl.org", phone: "81 3344 5566", status: "Activo", type: "Terapeuta", specialties: ["Individual", "Pareja"], location: "Barrio Antiguo" },
+        { id: 8, name: "Mario Alejandro Carvajal Rivera", email: "mario.carvajal@apnl.org", phone: "81 4455 6677", status: "Activo", type: "Terapeuta", specialties: ["Especialista"], location: "Barrio Antiguo" },
+        { id: 9, name: "Beatriz Chavarri Barajas", email: "beatriz.chavarri@apnl.org", phone: "81 5566 7788", status: "Activo", type: "Terapeuta", specialties: ["Individual"], location: "Barrio Antiguo" },
     ];
 
     const getStatusColor = (status: string) => {

@@ -22,11 +22,11 @@ import {
 
 export default function SolicitudesPage() {
     const applicants = [
-        { id: 1, name: "Lic. Roberto Casas", email: "roberto.c@gmail.com", date: "23 Ene 2026", status: "Documentación", specialties: ["Clínica", "Pareja"] },
-        { id: 2, name: "Mtra. Sofia Quintanilla", email: "sofia.q@outlook.com", date: "22 Ene 2026", status: "Entrevista", specialties: ["Infantil"] },
-        { id: 3, name: "Dr. Alejandro M.", email: "alex.m@yahoo.com", date: "20 Ene 2026", status: "Revisión Final", specialties: ["Neuropsicología"] },
-        { id: 4, name: "Lic. Elena Garza", email: "elena.g@gmail.com", date: "18 Ene 2026", status: "Nuevo", specialties: ["Clínica"] },
-        { id: 5, name: "Mtro. Carlos Ruiz", email: "cruiz@gmail.com", date: "15 Ene 2026", status: "Rechazado", specialties: ["Laboral"] },
+        { id: 1, name: "Fernanda Miroslava Muñoz Cordero", email: "fernanda.m@gmail.com", date: "23 Ene 2026", status: "Documentación", specialties: ["Individual", "Pareja"] },
+        { id: 2, name: "Lilia Sarahi Olivo Gamboa", email: "lilia.o@outlook.com", date: "22 Ene 2026", status: "Entrevista", specialties: ["Neuropsicología"] },
+        { id: 3, name: "Violeta Elizabeth Reyna Salas", email: "violeta.r@yahoo.com", date: "20 Ene 2026", status: "Revisión Final", specialties: ["Clínica"] },
+        { id: 4, name: "Abigail Guadalupe Rodriguez de Leon", email: "abigail@gmail.com", date: "18 Ene 2026", status: "Nuevo", specialties: ["Clínica"] },
+        { id: 5, name: "Anibal Alejandro Cerda Garcia", email: "anibal.c@gmail.com", date: "15 Ene 2026", status: "Rechazado", specialties: ["Pareja"] },
     ];
 
     const getStatusColor = (status: string) => {

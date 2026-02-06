@@ -60,9 +60,9 @@ export default function AdminDashboardPage() {
                     <CardContent className="px-8 py-6">
                         <div className="space-y-6">
                             {[
-                                { name: "Dr. Roberto Casas", email: "roberto@gmail.com", status: "Pendiente", time: "Hace 2 hrs" },
-                                { name: "Lic. Ana Torres", email: "ana.torres@hotmail.com", status: "Revisión", time: "Hace 5 hrs" },
-                                { name: "Mtra. Sofia Quintanilla", email: "sofiaq@outlook.com", status: "Pendiente", time: "Hace 1 día" },
+                                { name: "Abigail Guadalupe Rodriguez de Leon", email: "abigail@apnl.org", status: "Pendiente", time: "Hace 2 hrs" },
+                                { name: "Anibal Alejandro Cerda Garcia", email: "anibal.cerda@apnl.org", status: "Revisión", time: "Hace 5 hrs" },
+                                { name: "Violeta Elizabeth Reyna Salas", email: "violeta.reyna@apnl.org", status: "Pendiente", time: "Hace 1 día" },
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center justify-between group">
                                     <div className="flex items-center gap-4">
@@ -101,9 +101,9 @@ export default function AdminDashboardPage() {
                     <CardContent className="px-8 py-6">
                         <div className="space-y-6">
                             {[
-                                { patient: "Ana María Lopez", time: "4:00 PM", therapist: "Lic. Roberto Casas", type: "Online" },
-                                { patient: "Carlos Mendez", time: "5:30 PM", therapist: "Mtra. Sofia Q.", type: "Presencial" },
-                                { patient: "Lucia Garza", time: "6:00 PM", therapist: "Dr. Alejandro M.", type: "Online" },
+                                { patient: "Ana María Lopez", time: "4:00 PM", therapist: "Abigail Guadalupe Rodriguez", type: "Online" },
+                                { patient: "Carlos Mendez", time: "5:30 PM", therapist: "Anibal Alejandro Cerda", type: "Presencial" },
+                                { patient: "Lucia Garza", time: "6:00 PM", therapist: "Lilia Sarahi Olivo", type: "Online" },
                             ].map((appt, i) => (
                                 <div key={i} className="flex items-center justify-between group">
                                     <div className="flex items-center gap-4">
