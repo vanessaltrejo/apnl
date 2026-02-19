@@ -22,11 +22,11 @@ const Footer = () => {
           <ul className="text-sm space-y-3 opacity-90">
             <li className="flex items-center gap-3">
               <Phone className="h-5 w-5 text-primary shrink-0" />
-              <span>(81) 1234 5678</span>
+              <span>81 3107 7582</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-5 w-5 text-primary shrink-0" />
-              <span>contacto@apnl.org</span>
+              <span>contacto@psicologosnl.com</span>
             </li>
           </ul>
         </div>

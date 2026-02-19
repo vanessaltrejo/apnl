@@ -98,7 +98,7 @@ export function AdminSidebar() {
 
                 <div
                     onClick={() => router.push("/admin/configuracion")}
-                    className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-all cursor-pointer border border-transparent hover:border-slate-100 shadow-none hover:shadow-sm group"
+                    className="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-all cursor-pointer border border-transparent hover:border-slate-100 shadow-none hover:shadow-sm group text-left"
                 >
                     <div className="h-9 w-9 rounded-full bg-secondary flex items-center justify-center text-white font-bold text-xs">
                         AD
@@ -110,7 +110,7 @@ export function AdminSidebar() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="h-7 w-7 text-slate-400 hover:text-red-500"
+                        className="h-7 w-7 text-slate-400 hover:text-red-500 z-10"
                         onClick={(e) => {
                             e.stopPropagation();
                             router.push("/iniciar-sesion");
@@ -120,6 +120,6 @@ export function AdminSidebar() {
                     </Button>
                 </div>
             </div>
-        </aside>
+        </aside >
     );
 }
