@@ -3,6 +3,7 @@ import { ArrowLeft, CheckCircle2, User, Heart, Users, Baby, Brain, Scale, Calend
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { GuidedMatch } from "@/components/shared/GuidedMatch";
+import { FadeInUp } from "@/components/shared/FadeInUp";
 
 export default function ServicesPage() {
     const serviceIcons: Record<string, React.ElementType> = {
@@ -20,24 +21,23 @@ export default function ServicesPage() {
             {/* Premium Hero Section */}
             <section className="relative py-20 overflow-hidden bg-slate-50">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-1 translate-x-1/3 -translate-y-1/3" />
-                <div className="container px-6 relative z-10 text-center space-y-6">
+                <FadeInUp className="container px-6 relative z-10 text-center space-y-6">
                     <h1 className="text-5xl md:text-7xl font-extrabold text-secondary tracking-tight">Especialidades Clínicas</h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
                         Conoce a detalle cada una de las terapias y servicios que ofrecemos para acompañar tu proceso de sanación y crecimiento.
                     </p>
-                </div>
+                </FadeInUp>
             </section>
 
             <main className="container px-6 py-24 space-y-32">
                 {specialties.map((service, index) => {
                     const Icon = serviceIcons[service.slug] || Heart;
-                    const isEven = index % 2 === 0;
 
                     return (
                         <section key={service.id} className="scroll-mt-24" id={service.slug}>
                             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
                                 {/* Left/Top Side: Main Info & CTA */}
-                                <div className="lg:w-1/3 space-y-8 sticky top-24">
+                                <FadeInUp className="lg:w-1/3 space-y-8 sticky top-24">
                                     <div className="space-y-4">
                                         <div className="inline-flex items-center gap-3 px-4 py-2 bg-slate-50 rounded-2xl border border-slate-100 text-primary w-fit">
                                             <Icon className="h-6 w-6" />
@@ -67,14 +67,14 @@ export default function ServicesPage() {
                                             </Link>
                                         </Button>
                                     </div>
-                                </div>
+                                </FadeInUp>
 
                                 {/* Right/Bottom Side: Detailed Breakdown */}
                                 <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
 
                                     {/* Column 1 */}
                                     <div className="space-y-10">
-                                        <div className="space-y-4">
+                                        <FadeInUp className="space-y-4">
                                             <h3 className="text-xl font-bold text-secondary flex items-center gap-2">
                                                 <CheckCircle2 className="h-5 w-5 text-primary" />
                                                 ¿Cuándo es recomendable?
@@ -87,9 +87,9 @@ export default function ServicesPage() {
                                                     </li>
                                                 ))}
                                             </ul>
-                                        </div>
+                                        </FadeInUp>
 
-                                        <div className="space-y-4">
+                                        <FadeInUp className="space-y-4" delay={0.1}>
                                             <h3 className="text-xl font-bold text-secondary flex items-center gap-2">
                                                 <Brain className="h-5 w-5 text-primary" />
                                                 {service.whatIsWorkedLabel || "¿Qué se trabaja?"}
@@ -102,12 +102,12 @@ export default function ServicesPage() {
                                                     </li>
                                                 ))}
                                             </ul>
-                                        </div>
+                                        </FadeInUp>
                                     </div>
 
                                     {/* Column 2 */}
                                     <div className="space-y-10">
-                                        <div className="space-y-4">
+                                        <FadeInUp className="space-y-4">
                                             <h3 className="text-xl font-bold text-secondary flex items-center gap-2">
                                                 <Users className="h-5 w-5 text-primary" />
                                                 Metodología
@@ -120,9 +120,9 @@ export default function ServicesPage() {
                                                     </li>
                                                 ))}
                                             </ul>
-                                        </div>
+                                        </FadeInUp>
 
-                                        <div className="space-y-4">
+                                        <FadeInUp className="space-y-4" delay={0.1}>
                                             <h3 className="text-xl font-bold text-secondary flex items-center gap-2">
                                                 <CheckCircle2 className="h-5 w-5 text-primary" />
                                                 ¿Qué se entrega?
@@ -135,10 +135,10 @@ export default function ServicesPage() {
                                                     </li>
                                                 ))}
                                             </ul>
-                                        </div>
+                                        </FadeInUp>
 
                                         {/* Benefits / Extra */}
-                                        <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10 space-y-3">
+                                        <FadeInUp className="bg-primary/5 p-6 rounded-2xl border border-primary/10 space-y-3" delay={0.2}>
                                             <h3 className="font-bold text-secondary text-sm uppercase tracking-wider">Beneficios Clave</h3>
                                             <div className="flex flex-wrap gap-2">
                                                 {service.benefits?.map((benefit, i) => (
@@ -147,7 +147,7 @@ export default function ServicesPage() {
                                                     </span>
                                                 ))}
                                             </div>
-                                        </div>
+                                        </FadeInUp>
                                     </div>
 
                                 </div>
@@ -162,14 +162,14 @@ export default function ServicesPage() {
             <section className="py-24 bg-secondary text-white text-center relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-primary/5 -z-1" />
                 <div className="container px-6 space-y-12">
-                    <div className="space-y-6">
+                    <FadeInUp className="space-y-6">
                         <h2 className="text-3xl md:text-5xl font-bold">¿Aún no sabes por dónde empezar?</h2>
                         <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
                             Es normal tener dudas al iniciar un proceso terapéutico. Estamos aquí para orientarte y encontrar juntos la modalidad ideal para ti.
                         </p>
-                    </div>
+                    </FadeInUp>
 
-                    <div className="bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-white/20 max-w-4xl mx-auto">
+                    <FadeInUp className="bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-white/20 max-w-4xl mx-auto" delay={0.2}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="text-left space-y-6">
                                 <h3 className="text-2xl font-bold">Citas en línea y presenciales</h3>
@@ -195,7 +195,7 @@ export default function ServicesPage() {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </FadeInUp>
                 </div>
             </section>
         </div>

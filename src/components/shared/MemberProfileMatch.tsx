@@ -9,18 +9,21 @@ import Link from "next/link";
 
 type Step = 1 | 2 | 3 | 4;
 
-export function MemberProfileMatch() {
+export function MemberProfileMatch({
+    customTriggerClassName
+}: {
+    customTriggerClassName?: string
+}) {
     const [step, setStep] = useState<Step>(1);
     const [profile, setProfile] = useState<{
         isPsychologist: boolean | null;
         hasCedula: boolean | null;
-        isOldMember: boolean | null;
-    }>({ isPsychologist: null, hasCedula: null, isOldMember: null });
+    }>({ isPsychologist: null, hasCedula: null });
     const [open, setOpen] = useState(false);
 
     const reset = () => {
         setStep(1);
-        setProfile({ isPsychologist: null, hasCedula: null, isOldMember: null });
+        setProfile({ isPsychologist: null, hasCedula: null });
     };
 
     const handleFirstStep = (val: boolean) => {
@@ -34,16 +37,7 @@ export function MemberProfileMatch() {
 
     const handleCedula = (val: boolean) => {
         setProfile({ ...profile, hasCedula: val });
-        if (!val) {
-            setStep(3); // Recommendation: Interino
-        } else {
-            setStep(3);
-        }
-    };
-
-    const handleOldMember = (val: boolean) => {
-        setProfile({ ...profile, isOldMember: val });
-        setStep(3);
+        setStep(3); // Result step
     };
 
     const getRecommendation = () => {
@@ -53,12 +47,6 @@ export function MemberProfileMatch() {
             icon: UserPlus,
             color: "text-blue-600",
             description: "Ideal para egresados que están en proceso de obtener su título y cédula, pero desean comenzar su vinculación profesional."
-        };
-        if (profile.isOldMember) return {
-            name: "Miembro Oficial",
-            icon: Star,
-            color: "text-amber-500",
-            description: "Nivel para profesionales con trayectoria en la asociación, participación activa en proyectos y asistencia constante."
         };
         return {
             name: "Miembro Adherente",
@@ -75,10 +63,13 @@ export function MemberProfileMatch() {
             <DialogTrigger asChild>
                 <Button
                     variant="outline"
-                    className="h-14 rounded-2xl border-primary/30 text-primary hover:bg-primary/5 font-bold px-8 gap-3 group transition-all"
+                    className={cn(
+                        "h-14 rounded-2xl border-primary/30 text-primary hover:bg-primary/5 font-bold px-8 gap-3 group transition-all",
+                        customTriggerClassName
+                    )}
                 >
                     <Sparkles className="h-5 w-5 animate-pulse" />
-                    <span>Asistencia en 3 clics: Conoce tu perfil</span>
+                    <span>Conoce tu perfil en 2 clicks</span>
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[500px] border-none shadow-2xl rounded-[3rem] p-0 overflow-hidden bg-white">
@@ -155,36 +146,7 @@ export function MemberProfileMatch() {
                         </div>
                     )}
 
-                    {step === 3 && profile.hasCedula && profile.isOldMember === null && (
-                        <div className="space-y-6 animate-in fade-in slide-in-from-right-4">
-                            <div className="space-y-2">
-                                <h2 className="text-2xl font-black text-secondary leading-tight">¿Has sido miembro antes?</h2>
-                                <p className="text-muted-foreground font-medium">Buscamos valorar tu compromiso previo con la asociación.</p>
-                            </div>
-                            <div className="grid grid-cols-1 gap-3">
-                                <button
-                                    onClick={() => handleOldMember(true)}
-                                    className="flex items-center gap-4 p-5 rounded-2xl border border-slate-100 hover:border-primary/40 hover:bg-primary/5 transition-all text-left group"
-                                >
-                                    <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                        <History className="h-6 w-6" />
-                                    </div>
-                                    <span className="font-extrabold text-secondary">Sí, llevo más de un año activo</span>
-                                </button>
-                                <button
-                                    onClick={() => handleOldMember(false)}
-                                    className="flex items-center gap-4 p-5 rounded-2xl border border-slate-100 hover:border-primary/40 hover:bg-primary/5 transition-all text-left group"
-                                >
-                                    <div className="h-12 w-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-white group-hover:text-primary transition-colors">
-                                        <UserPlus className="h-6 w-6" />
-                                    </div>
-                                    <span className="font-extrabold text-secondary">Soy nuevo en la red</span>
-                                </button>
-                            </div>
-                        </div>
-                    )}
-
-                    {step === 3 && (profile.hasCedula === false || profile.isOldMember !== null) && recommendation && (
+                    {step === 3 && recommendation && (
                         <div className="space-y-8 animate-in zoom-in-95 duration-500 text-center">
                             <div className="space-y-3">
                                 <div className="h-20 w-20 rounded-[2rem] bg-slate-50 text-secondary flex items-center justify-center mx-auto mb-4 border border-slate-100">

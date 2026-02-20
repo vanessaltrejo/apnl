@@ -1,6 +1,7 @@
 import { Users, Target, ShieldCheck, Heart, Award, Clock } from "lucide-react";
 import { nosotrosImages } from "@/lib/mock-data";
 import Image from "next/image";
+import { FadeInUp } from "@/components/shared/FadeInUp";
 
 export default function NosotrosPage() {
   const values = [
@@ -22,7 +23,7 @@ export default function NosotrosPage() {
       {/* Professional Page Header */}
       <section className="bg-secondary py-24 text-white">
         <div className="container px-6">
-          <div className="max-w-3xl space-y-4">
+          <FadeInUp className="max-w-3xl space-y-4">
             <span className="text-primary font-bold uppercase tracking-widest text-sm flex items-center gap-2">
               <Clock className="h-4 w-4" /> Desde 2004
             </span>
@@ -30,12 +31,12 @@ export default function NosotrosPage() {
             <p className="text-xl text-slate-300 leading-relaxed">
               Uniendo esfuerzos para transformar la promoción y práctica de la psicología en Nuevo León.
             </p>
-          </div>
+          </FadeInUp>
         </div>
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-primary py-12 -mt-10 relative z-20 mx-4 md:mx-auto max-w-5xl rounded-2xl shadow-xl">
+      <FadeInUp className="bg-primary py-12 -mt-10 relative z-20 mx-4 md:mx-auto max-w-5xl rounded-2xl shadow-xl">
         <div className="container grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <div key={i} className="text-center text-white space-y-1">
@@ -44,12 +45,12 @@ export default function NosotrosPage() {
             </div>
           ))}
         </div>
-      </section>
+      </FadeInUp>
 
       {/* Main Content Section */}
       <section className="py-24">
         <div className="container px-6 flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2 relative">
+          <FadeInUp className="lg:w-1/2 relative">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4 pt-12">
                 <div className="relative h-64 rounded-3xl overflow-hidden shadow-lg border-4 border-white">
@@ -68,25 +69,27 @@ export default function NosotrosPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </FadeInUp>
 
           <div className="lg:w-1/2 space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary">
-              Impulsando la psicología institucional y privada
-            </h2>
+            <FadeInUp>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary">
+                Impulsando la psicología institucional y privada
+              </h2>
+            </FadeInUp>
 
-            <div className="text-muted-foreground space-y-6 text-lg leading-relaxed">
+            <FadeInUp delay={0.1} className="text-muted-foreground space-y-6 text-lg leading-relaxed">
               <p>
                 La Asociación de Psicólogos y Psicólogas de Nuevo León A.C. se fundó en el 2004, motivada por un grupo de profesionales apasionados con el objetivo de elevar la práctica psicológica.
               </p>
               <p>
                 Nuestra misión está centrada en crear una cultura preventiva y de responsabilidad social en salud mental, apoyándonos en herramientas tecnológicas modernas.
               </p>
-            </div>
+            </FadeInUp>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
               {values.map((v, i) => (
-                <div key={i} className="flex gap-4">
+                <FadeInUp key={i} delay={0.2 + (i * 0.1)} className="flex gap-4">
                   <div className="h-12 w-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-primary shrink-0">
                     {v.icon}
                   </div>
@@ -94,7 +97,7 @@ export default function NosotrosPage() {
                     <h4 className="font-bold text-secondary">{v.title}</h4>
                     <p className="text-sm text-muted-foreground">{v.desc}</p>
                   </div>
-                </div>
+                </FadeInUp>
               ))}
             </div>
           </div>
@@ -104,20 +107,20 @@ export default function NosotrosPage() {
       {/* Mission / Vision CTA */}
       <section className="py-24 bg-slate-50">
         <div className="container px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="p-10 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm space-y-4">
+          <FadeInUp className="p-10 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm space-y-4" distance={30}>
             <Target className="h-12 w-12 text-primary" />
             <h3 className="text-2xl font-bold text-secondary">Nuestra Misión</h3>
             <p className="text-muted-foreground leading-relaxed">
               Crear una cultura preventiva y de responsabilidad social en salud mental a través del fortalecimiento de la red de profesionales y el acceso simplificado para la sociedad.
             </p>
-          </div>
-          <div className="p-10 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm space-y-4">
+          </FadeInUp>
+          <FadeInUp className="p-10 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm space-y-4" delay={0.1}>
             <Users className="h-12 w-12 text-secondary" />
             <h3 className="text-2xl font-bold text-secondary">Nuestra Visión</h3>
             <p className="text-muted-foreground leading-relaxed">
               Ser la organización líder y referente en Nuevo León por nuestro compromiso con el desarrollo científico y ético de la psicología moderna.
             </p>
-          </div>
+          </FadeInUp>
         </div>
       </section>
     </div>

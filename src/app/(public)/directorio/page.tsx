@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { useSearchParams } from "next/navigation";
 import { GuidedMatch } from "@/components/shared/GuidedMatch";
 import { DirectoryFilters } from "@/components/directory/DirectoryFilters";
+import { FadeInUp } from "@/components/shared/FadeInUp";
 
 function DirectoryContent() {
     const allTherapists = getMockTherapists();
@@ -45,15 +46,15 @@ function DirectoryContent() {
     return (
         <div className="min-h-screen bg-slate-50">
             <div className="bg-secondary text-white py-12">
-                <div className="container px-4">
+                <FadeInUp className="container px-4">
                     <h1 className="text-3xl font-bold mb-2">Encuentra a tu especialista</h1>
                     <p className="opacity-80">Explora nuestra red de profesionales certificados.</p>
-                </div>
+                </FadeInUp>
             </div>
 
             <div className="container px-4 py-8 flex flex-col md:flex-row gap-8">
                 {/* Mobile Filter Sheet */}
-                <div className="md:hidden mb-4">
+                <FadeInUp className="md:hidden mb-4">
                     <Sheet>
                         <SheetTrigger asChild>
                             <Button variant="outline" className="w-full">
@@ -68,12 +69,12 @@ function DirectoryContent() {
                             <DirectoryFilters {...filterProps} />
                         </SheetContent>
                     </Sheet>
-                </div>
+                </FadeInUp>
 
                 {/* Desktop Sidebar */}
                 <aside className="hidden md:block w-72 shrink-0 space-y-8">
                     {/* Guidance Tool */}
-                    <div className="p-6 bg-primary/5 rounded-[2rem] border border-primary/10 space-y-4">
+                    <FadeInUp className="p-6 bg-primary/5 rounded-[2rem] border border-primary/10 space-y-4">
                         <div className="flex items-center gap-2 text-primary font-bold">
                             <Compass className="h-5 w-5" />
                             <span>¿Necesitas orientación?</span>
@@ -82,26 +83,28 @@ function DirectoryContent() {
                             Si aún no estás seguro de qué tipo de terapia necesitas, nuestro asistente puede ayudarte en 3 clics.
                         </p>
                         <GuidedMatch />
-                    </div>
+                    </FadeInUp>
 
-                    <div className="sticky top-24 p-6 bg-white rounded-[2rem] border border-slate-100 shadow-sm">
+                    <FadeInUp className="sticky top-24 p-6 bg-white rounded-[2rem] border border-slate-100 shadow-sm" delay={0.1}>
                         <h3 className="font-bold text-secondary mb-6 flex items-center gap-2 text-lg">
                             <SlidersHorizontal className="h-4 w-4" /> Filtros
                         </h3>
                         <DirectoryFilters {...filterProps} />
-                    </div>
+                    </FadeInUp>
                 </aside>
 
                 {/* Results Grid */}
                 <div className="flex-1">
                     {filteredTherapists.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-                            {filteredTherapists.map(t => (
-                                <TherapistCard key={t.id} therapist={t} />
+                            {filteredTherapists.map((t, i) => (
+                                <FadeInUp key={t.id} delay={(i % 6) * 0.05} distance={15}>
+                                    <TherapistCard therapist={t} />
+                                </FadeInUp>
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center py-20 bg-white rounded-lg border border-dashed">
+                        <FadeInUp className="text-center py-20 bg-white rounded-lg border border-dashed">
                             <div className="text-muted-foreground mb-4">No se encontraron terapeutas con estos criterios.</div>
                             <Button
                                 variant="link"
@@ -114,7 +117,7 @@ function DirectoryContent() {
                             >
                                 Limpiar filtros
                             </Button>
-                        </div>
+                        </FadeInUp>
                     )}
                 </div>
             </div>

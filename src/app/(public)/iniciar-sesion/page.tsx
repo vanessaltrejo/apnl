@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lock, Mail } from "lucide-react";
 import Link from "next/link";
+import { FadeInUp } from "@/components/shared/FadeInUp";
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,9 +25,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center py-12 px-4">
 
-      <div className="w-full max-w-[450px] space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <FadeInUp className="w-full max-w-[450px] space-y-8">
         <div className="text-center space-y-2">
           <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-primary text-white shadow-xl shadow-primary/20 mb-4">
             <Lock className="h-8 w-8" />
@@ -34,17 +35,8 @@ export default function LoginPage() {
           <h1 className="text-3xl font-extrabold text-secondary tracking-tight">Bienvenido de nuevo</h1>
           <p className="text-muted-foreground font-medium">Acceso exclusivo para miembros y administración.</p>
         </div>
-
         <Card className="border-none shadow-2xl shadow-slate-200/50 rounded-[2.5rem] overflow-hidden">
-          <CardHeader className="pt-10 px-8">
-            <CardTitle className="text-2xl font-black text-secondary">
-              Iniciar Sesión
-            </CardTitle>
-            <CardDescription className="font-medium">
-              Ingresa tus credenciales para acceder al panel de control.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-5 px-8">
+          <CardContent className="space-y-6 px-8 pt-10">
             <form onSubmit={handleLogin} className="space-y-5">
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-secondary font-bold ml-1">Correo Electrónico</Label>
@@ -100,7 +92,7 @@ export default function LoginPage() {
         <div className="text-center text-xs text-muted-foreground font-medium opacity-60">
           &copy; {new Date().getFullYear()} Asociación de Psicólogos de Nuevo León A.C.
         </div>
-      </div>
+      </FadeInUp>
     </div>
   );
 }

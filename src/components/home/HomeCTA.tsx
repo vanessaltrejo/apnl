@@ -3,12 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { FadeInUp } from "@/components/shared/FadeInUp";
 
 export function HomeCTA() {
     return (
         <section className="py-24 bg-white">
             <div className="container px-4 md:px-6">
-                <div className="bg-secondary rounded-[3.5rem] p-12 md:p-20 text-white relative overflow-hidden text-center md:text-left">
+                <FadeInUp className="bg-secondary rounded-[3.5rem] p-12 md:p-20 text-white relative overflow-hidden text-center md:text-left">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
 
                     <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
@@ -37,7 +38,7 @@ export function HomeCTA() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </FadeInUp>
             </div>
         </section>
     );
