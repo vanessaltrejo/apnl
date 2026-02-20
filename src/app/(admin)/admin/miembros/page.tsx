@@ -21,11 +21,11 @@ import {
 
 export default function MiembrosGeneralPage() {
     const members = [
-        { id: 1, name: "Juan Pérez", email: "juan.p@gmail.com", dateJoined: "12 Ene 2024", status: "Activo", type: "Afiliado", location: "Monterrey" },
-        { id: 2, name: "Maria Garcia", email: "m.garcia@outlook.com", dateJoined: "05 Feb 2024", status: "Activo", type: "Estudiante", location: "San Pedro" },
-        { id: 3, name: "Lucas Rodriguez", email: "lucas.r@yahoo.com", dateJoined: "20 Mar 2024", status: "Pendiente", type: "Afiliado", location: "Guadalupe" },
-        { id: 4, name: "Elena Jimenez", email: "elena.j@apnl.com", dateJoined: "01 Abr 2024", status: "Inactivo", type: "Afiliado", location: "Online" },
-        { id: 5, name: "Roberto Torres", email: "r.torres@gmail.com", dateJoined: "15 May 2024", status: "Activo", type: "Afiliado", location: "Monterrey" },
+        { id: 1, name: "Dr. Juan Pérez", email: "juan.p@gmail.com", dateJoined: "12 Ene 2024", status: "Activo", type: "Oficial", location: "Monterrey" },
+        { id: 2, name: "Maria Garcia", email: "m.garcia@outlook.com", dateJoined: "05 Feb 2024", status: "Activo", type: "Adherente", location: "San Pedro" },
+        { id: 3, name: "Lucas Rodriguez", email: "lucas.r@yahoo.com", dateJoined: "20 Mar 2024", status: "Pendiente", type: "Interino", location: "Guadalupe" },
+        { id: 4, name: "Elena Jimenez", email: "elena.j@apnl.com", dateJoined: "01 Abr 2024", status: "Inactivo", type: "Adherente", location: "Online" },
+        { id: 5, name: "Roberto Torres", email: "r.torres@gmail.com", dateJoined: "15 May 2024", status: "Activo", type: "Oficial", location: "Monterrey" },
     ];
 
     const getStatusColor = (status: string) => {

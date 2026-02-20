@@ -311,7 +311,7 @@ export const getMockTherapists = (): Therapist[] => {
     return [
         {
             id: "t1",
-            name: "Abigail Guadalupe Rodriguez de Leon",
+            name: "Abigail Rodriguez",
             title: "Psicólogo clínico",
             specialties: ["s1"],
             bio: "Especialista en psicoterapia clínica individual, brindando un espacio seguro para el autoconocimiento y bienestar emocional.",
@@ -444,7 +444,7 @@ export const getMockBlogPosts = (): BlogPost[] => [
         title: "5 consejos para manejar la ansiedad en el trabajo",
         excerpt: "La ansiedad laboral es cada vez más común. Aprende algunas técnicas sencillas para mantener la calma.",
         category: "Bienestar",
-        author: "Abigail Guadalupe Rodriguez de Leon",
+        author: "Abigail Rodriguez",
         date: "15 Ene 2026",
         readTime: "5 min",
         imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop"
@@ -477,7 +477,7 @@ export const getMockBlogPosts = (): BlogPost[] => [
         author: "Lilia Sarahi Olivo Gamboa",
         date: "01 Ene 2026",
         readTime: "6 min",
-        imageUrl: "https://images.unsplash.com/photo-1511275539165-cc46b1ee8960?q=80&w=800&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=800&auto=format&fit=crop"
     },
     {
         id: "5",
@@ -487,7 +487,7 @@ export const getMockBlogPosts = (): BlogPost[] => [
         author: "Mario Alejandro Carvajal Rivera",
         date: "28 Dic 2025",
         readTime: "10 min",
-        imageUrl: "https://images.unsplash.com/photo-1516589174184-e67823db622d?q=80&w=800&auto=format&fit=crop"
+        imageUrl: "https://images.unsplash.com/photo-1516589091380-5d8e87df6999?q=80&w=800&auto=format&fit=crop"
     },
     {
         id: "6",

@@ -22,7 +22,7 @@ import {
 
 export default function MiembrosPage() {
     const members = [
-        { id: 1, name: "Abigail Guadalupe Rodriguez de Leon", email: "abigail@apnl.org", phone: "81 8345 5334", status: "Activo", type: "Terapeuta", specialties: ["Individual"], location: "Barrio Antiguo" },
+        { id: 1, name: "Abigail Rodriguez", email: "abigail@apnl.org", phone: "81 8345 5334", status: "Activo", type: "Terapeuta", specialties: ["Individual"], location: "Barrio Antiguo" },
         { id: 2, name: "Lilia Sarahi Olivo Gamboa", email: "lilia.olivo@apnl.org", phone: "81 1234 5678", status: "Activo", type: "Terapeuta", specialties: ["Neuropsicología", "Individual"], location: "Barrio Antiguo" },
         { id: 3, name: "Fernanda Miroslava Muñoz Cordero", email: "fernanda.munoz@apnl.org", phone: "81 8765 4321", status: "Activo", type: "Terapeuta", specialties: ["Individual", "Pareja"], location: "Barrio Antiguo" },
         { id: 4, name: "Violeta Elizabeth Reyna Salas", email: "violeta.reyna@apnl.org", phone: "81 2345 6789", status: "Activo", type: "Terapeuta", specialties: ["Individual"], location: "Chapultepec" },
