@@ -37,7 +37,7 @@ export default function ServicesPage() {
                         <section key={service.id} className="scroll-mt-24" id={service.slug}>
                             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
                                 {/* Left/Top Side: Main Info & CTA */}
-                                <FadeInUp className="lg:w-1/3 space-y-8 sticky top-24">
+                                <FadeInUp className="lg:w-1/3 space-y-8 lg:sticky lg:top-24">
                                     <div className="space-y-4">
                                         <div className="inline-flex items-center gap-3 px-4 py-2 bg-slate-50 rounded-2xl border border-slate-100 text-primary w-fit">
                                             <Icon className="h-6 w-6" />

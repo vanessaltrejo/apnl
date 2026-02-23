@@ -71,13 +71,13 @@ export default function BlogPage() {
             <h3 className="text-2xl font-bold">Suscríbete a nuestro boletín</h3>
             <p className="text-slate-300">Recibe consejos de bienestar directamente en tu correo.</p>
           </div>
-          <div className="flex w-full max-w-md gap-2">
+          <div className="flex flex-col sm:flex-row w-full max-w-md gap-3">
             <input
               type="email"
               placeholder="Tu correo electrónico"
-              className="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary h-12"
+              className="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary h-12 w-full text-sm"
             />
-            <button className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3 rounded-xl transition-colors h-12">
+            <button className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 rounded-xl transition-colors h-12 w-full sm:w-auto shrink-0">
               Unirme
             </button>
           </div>

@@ -14,13 +14,13 @@ export function HomeCTA() {
 
                     <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
                         <div className="md:w-3/5 space-y-6">
-                            <span className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold tracking-widest uppercase">Tu salud mental no puede esperar más.</span>
+                            <span className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold tracking-wider uppercase">Tu salud mental no puede esperar más.</span>
                             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">Estamos aquí para escucharte y acompañarte.</h2>
                             <p className="text-lg text-slate-300 max-w-xl leading-relaxed">
                                 Encuentra el psicólogo ideal y agenda tu cita en menos de 2 minutos. Atención personalizada y profesional.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" className="rounded-full px-10 bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5" asChild>
+                                <Button size="lg" className="rounded-full px-6 md:px-10 bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5" asChild>
                                     <Link href="/directorio" className="flex items-center gap-2">
                                         Agendar Cita Ahora
                                     </Link>

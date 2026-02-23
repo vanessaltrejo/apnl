@@ -223,8 +223,8 @@ export default function JoinNetworkPage() {
                                 Comienza tu trayectoria con nosotros hoy mismo. Un miembro de nuestro comité evaluará tu perfil para asignarte la categoría correspondiente.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <Button size="lg" className="h-14 bg-primary text-white font-bold rounded-2xl text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:-translate-y-1 px-12 w-full sm:w-auto" asChild>
-                                    <a href="https://wa.me/528183455334?text=Hola,%20me%20interesa%20afiliarme%20a%20la%20asociación" target="_blank" rel="noopener noreferrer">
+                                <Button size="lg" className="whitespace-normal h-auto py-4 bg-primary text-white font-bold rounded-2xl text-base sm:text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:-translate-y-1 px-8 w-full sm:w-auto" asChild>
+                                    <a href="https://wa.me/528183455334?text=Hola,%20me%20interesa%20afiliarme%20a%20la%20asociación" target="_blank" rel="noopener noreferrer" className="text-center">
                                         Hablar con el Comité Administrativo
                                     </a>
                                 </Button>

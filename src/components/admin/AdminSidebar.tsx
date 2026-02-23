@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function AdminSidebar() {
+export function AdminSidebar({ className }: { className?: string }) {
     const pathname = usePathname();
     const router = useRouter();
 
@@ -37,7 +37,7 @@ export function AdminSidebar() {
     ];
 
     return (
-        <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-slate-50 border-r border-slate-200 flex flex-col">
+        <aside className={cn("fixed left-0 top-0 z-40 h-screen w-64 bg-slate-50 border-r border-slate-200 flex flex-col", className)}>
             {/* Header */}
             <div className="h-16 flex items-center px-6 border-b border-slate-200/60 bg-white/50 backdrop-blur-sm">
                 <Link href="/admin" className="flex items-center gap-3">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Calendar } from "lucide-react";
 
 export function Navbar() {
@@ -59,6 +59,12 @@ export function Navbar() {
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right">
+                            <SheetHeader className="text-left sr-only">
+                                <SheetTitle>Menú de navegación</SheetTitle>
+                                <SheetDescription>
+                                    Accede a las diferentes secciones de nuestra página.
+                                </SheetDescription>
+                            </SheetHeader>
                             <div className="flex flex-col gap-6 mt-8">
                                 {navLinks.map((link) => (
                                     <Link
